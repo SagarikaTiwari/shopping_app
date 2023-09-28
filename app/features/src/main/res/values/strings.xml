@@ -1,0 +1,10 @@
+<resources>
+<string name="app_name">My Application</string>
+<string name="error_message">Some error occurred. Please try again in sometime.</string>
+<string name="homescreen_appname">E-commerce App</string>
+<string name="itemhpoto">Item photo</string>
+<string name="wishlistButton">Wish List Button</string>
+<string name="addToCartButton">Add To Cart</string>
+<string name="buyNow">Buy Now</string>
+
+</resources>
