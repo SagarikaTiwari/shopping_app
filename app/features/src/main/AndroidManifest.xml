@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name="com.sagarika.features.presentation.views.MainActivity"
+            android:name="com.sagarika.features.ecommerce.presentation.views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

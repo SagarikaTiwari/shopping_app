@@ -42,6 +42,7 @@ dependencies {
     implementation(project(mapOf("path" to ":app:domain")))
     implementation(project(mapOf("path" to ":app:data")))
     implementation(project(mapOf("path" to ":app:data")))
+    implementation("com.android.billingclient:billing-ktx:6.0.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -96,4 +97,35 @@ dependencies {
     kapt ("androidx.hilt:hilt-compiler:1.0.0")
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
 
+    // Local unit tests
+    testImplementation ("androidx.test:core:1.5.0")
+    testImplementation ("androidx.arch.core:core-testing:2.2.0")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation ("com.google.truth:truth:1.1.5")
+    testImplementation ("com.squareup.okhttp3:mockwebserver:4.9.1")
+    debugImplementation ("androidx.compose.ui:ui-test-manifest:1.6.0-alpha05")
+
+    // Instrumentation tests
+    androidTestImplementation ("com.google.dagger:hilt-android-testing:2.48")
+    kaptAndroidTest ("com.google.dagger:hilt-android-compiler:2.48")
+    androidTestImplementation ("junit:junit:4.13.2")
+    androidTestImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    androidTestImplementation ("androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation ("com.google.truth:truth:1.1.5")
+    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation ("androidx.test:core-ktx:1.5.0")
+    androidTestImplementation ("com.squareup.okhttp3:mockwebserver:4.9.6")
+    androidTestImplementation ("io.mockk:mockk-android:1.13.8")
+    androidTestImplementation ("androidx.test:runner:1.5.2")
+
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("org.mockito:mockito-core:5.5.0")
+    testImplementation ("org.mockito:mockito-inline:5.2.0")
+    testImplementation ("io.mockk:mockk-android:1.10.5")
+
+}
+
+
+kapt {
+    correctErrorTypes = true
 }
