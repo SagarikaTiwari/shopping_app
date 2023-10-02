@@ -15,7 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "My Application"
 include(":app")
-include(":app:data")
-include(":app:domain")
-include(":app:features")
-include(":app:core")
+include(":data")
+include(":domain")
+include(":features")
+include(":core")

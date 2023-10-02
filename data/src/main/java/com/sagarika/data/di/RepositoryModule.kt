@@ -3,9 +3,6 @@ package com.example.e_commerceappwithjetpackcompose.di
 import com.sagarika.data.remote.ApiClient
 import com.sagarika.data.remote.ProductService
 import com.sagarika.data.repositories.ProductRepositoryImpl
-import com.sagarika.domain.mapper.ProductDetailsEntityDataMapper
-import com.sagarika.domain.mapper.ProductEntityDataMapper
-import com.sagarika.domain.repositories.ProductRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

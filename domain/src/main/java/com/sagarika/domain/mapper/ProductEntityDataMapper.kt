@@ -1,6 +1,5 @@
 package com.sagarika.domain.mapper
 
-import com.sagarika.data.entities.ProductEntity
 import com.sagarika.domain.entities.Product
 import javax.inject.Inject
 
