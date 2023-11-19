@@ -6,8 +6,8 @@ import com.sagarika.data.remote.ProductService
 import com.sagarika.data.repositories.ProductRepositoryImpl
 import com.sagarika.domain.entities.Product
 import com.sagarika.domain.entities.ProductDetails
-import com.sagarika.domain.mapper.ProductDetailsEntityDataMapper
-import com.sagarika.domain.mapper.ProductEntityDataMapper
+import com.sagarika.data.mapper.ProductDetailsEntityDataMapper
+import com.sagarika.data.mapper.ProductEntityDataMapper
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -17,7 +17,6 @@ import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class ProductRepositoryImplTest {
-
     companion object {
         private lateinit var repository: ProductRepositoryImpl
         private val service = mockk<ProductService>()
@@ -41,7 +40,6 @@ class ProductRepositoryImplTest {
                 "id"
             )
         }
-
         val productDetailEntity = ProductDetailsEntity(
             "title",
             "desc",
@@ -61,7 +59,6 @@ class ProductRepositoryImplTest {
             listOf("cons")
         )
     }
-
     @Before
     fun setup() {
         repository = ProductRepositoryImpl(
@@ -70,16 +67,12 @@ class ProductRepositoryImplTest {
             productDetailsEntityDataMapper
         )
     }
-
-
     @Test
     fun `when get product List is  called then it returns entity into Business Objects`() =
         runTest {
-
             coEvery {
                 service.getProductList()
             } returns listOfProductEntity
-
             coEvery {
                 productEntityToProductDataMapper.mapProdcutEntityToProduct(
                     listOfProductEntity[0]
@@ -95,32 +88,25 @@ class ProductRepositoryImplTest {
                     listOfProductEntity[2]
                 )
             } returns listOfProducts.get(2)
-
             val products = (service.getProductList())
-
             assert(products.size == 3)
             if (products != null) {
                 assert(products.get(1).description == "description 1")
             }
         }
-
-
     @Test
     fun `when get Product Detail is called then it returns entity into business object`() =
         runTest {
             coEvery {
                 service.getProductDetails(any())
             } returns productDetailEntity
-
             coEvery {
                 productDetailsEntityDataMapper.mapProductDetailsEntityToProductDetails(
                     productDetailEntity
                 )
             } returns productDetail
-
             assert(service.getProductDetails("1").title == "title")
             assert(service.getProductDetails("13").description == "desc")
             assert(service.getProductDetails("23").price == 10.0)
-
         }
 }

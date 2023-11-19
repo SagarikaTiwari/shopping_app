@@ -1,6 +1,6 @@
 package com.sagarika.features.ecommerce.presentation.mapper
 
-import com.sagarika.domain.entities.Product
+import com.sagarika.data.entities.Product
 import com.sagarika.features.ecommerce.presentation.viewmodels.ProductCardViewState
 import org.junit.Assert.*
 
@@ -10,7 +10,7 @@ class ProductToProductCardViewStateMapperTest {
     private lateinit var productCardViewStateMapper: ProductToProductCardViewStateMapper
 
     companion object {
-        val product = Product(
+        val product = com.sagarika.data.entities.Product(
             title = "Item",
             description = "Desc",
             price = 250.0,

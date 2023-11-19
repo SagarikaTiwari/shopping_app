@@ -1,11 +1,10 @@
-package com.sagarika.domain.repositories
-import com.sagarika.data.remote.Resource
+package com.sagarika.domain.repository
+
+import com.sagarika.common.util.Resource
 import com.sagarika.domain.entities.Product
 import com.sagarika.domain.entities.ProductDetails
 
 interface ProductRepository {
-
     suspend fun getProductList(): Resource<List<Product>>
-
-    suspend fun getProductDetails(productId: String) : Resource<ProductDetails>
+    suspend fun getProductDetails(productId: String): Resource<ProductDetails>
 }

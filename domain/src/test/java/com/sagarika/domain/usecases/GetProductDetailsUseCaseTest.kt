@@ -1,8 +1,8 @@
 package com.sagarika.domain.usecases
 
-import com.sagarika.data.remote.Resource
+import com.sagarika.common.util.Resource
 import com.sagarika.domain.entities.ProductDetails
-import com.sagarika.domain.repositories.ProductRepository
+import com.sagarika.domain.repository.ProductRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -13,11 +13,9 @@ import org.junit.Test
 
 @ExperimentalCoroutinesApi
 internal class GetProductDetailsUseCaseTest {
-
     companion object {
         private val productRepository = mockk<ProductRepository>()
-        private val productDetails =
-            ProductDetails(
+        private val productDetails = ProductDetails(
                 "title",
                 "description",
                 "full description",
@@ -32,7 +30,6 @@ internal class GetProductDetailsUseCaseTest {
     fun setUp() {
         useCase = GetProductDetailsUseCase(productRepository)
     }
-
     @Test
     fun `When getProductDetails is called then Details gets populated correctly`() = runTest {
         coEvery {
@@ -41,5 +38,4 @@ internal class GetProductDetailsUseCaseTest {
         useCase("any Id")
         coVerify { productRepository.getProductDetails("any Id")}
     }
-
 }

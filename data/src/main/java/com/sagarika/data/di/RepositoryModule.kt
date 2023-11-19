@@ -1,8 +1,11 @@
-package com.example.e_commerceappwithjetpackcompose.di
+package com.sagarika.data.di
 
 import com.sagarika.data.remote.ApiClient
 import com.sagarika.data.remote.ProductService
 import com.sagarika.data.repositories.ProductRepositoryImpl
+import com.sagarika.data.mapper.ProductDetailsEntityDataMapper
+import com.sagarika.data.mapper.ProductEntityDataMapper
+import com.sagarika.domain.repository.ProductRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,8 +33,6 @@ class RepositoryModule {
     fun providesProductRepository(
         productRepositoryImpl: ProductRepositoryImpl
     ): ProductRepository = productRepositoryImpl
-
-
 
     @Provides
     fun providesIoDispatcher(): CoroutineDispatcher = Dispatchers.IO

@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.sagarika.domain.entities.ProductDetails
+import com.sagarika.data.entities.ProductDetails
 import com.sagarika.features.ecommerce.presentation.theme.Roboto
 import com.sagarika.features.ecommerce.presentation.viewmodels.ProductDetailsViewState
 import com.sagarika.features.ecommerce.presentation.viewmodels.ProductDetailsViewModel
@@ -44,32 +44,28 @@ fun ProductDetailScreen(
             .fillMaxSize()
             .padding(bottom = 16.dp)
     ) {
-
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp)
         ) {
-
-            if (viewState.equals(ProductDetailsViewState.Loading)) {
-                LoadingIndicator()
-            } else if (viewState.equals(ProductDetailsViewState.Error)) {
-                ErrorViewInABox()
-            } else {
-                val product = (viewState as ProductDetailsViewState.Content).product
-                ProductTitleAndImage(product = product)
-                Spacer(modifier = Modifier.height(30.dp))
-                ProductDescription(product = product)
-                Spacer(modifier = Modifier.height(30.dp))
-             }
-
+            when (viewState) {
+                is ProductDetailsViewState.Loading -> LoadingIndicator()
+                is ProductDetailsViewState.Error -> ErrorViewInABox()
+                is ProductDetailsViewState.Content -> {
+                    val product = (viewState as ProductDetailsViewState.Content).product
+                    ProductTitleAndImage(product = product)
+                    Spacer(modifier = Modifier.height(30.dp))
+                    ProductDescription(product = product)
+                    Spacer(modifier = Modifier.height(30.dp))
+                }
+            }
         }
     }
 }
 
 @Composable
-fun ProductTitleAndImage(product: ProductDetails) {
-
+fun ProductTitleAndImage(product: com.sagarika.data.entities.ProductDetails) {
     Box(
         contentAlignment = Alignment.TopStart,
         modifier = Modifier
@@ -84,8 +80,6 @@ fun ProductTitleAndImage(product: ProductDetails) {
             .fillMaxWidth(1f)
     ) {
         Column() {
-
-
             MyTextView(
                 text = "${product.title.capitalize(Locale.ROOT)}",
                 fontFamily = Roboto,
@@ -107,15 +101,13 @@ fun ProductTitleAndImage(product: ProductDetails) {
                     .height(200.dp)
                     .offset(16.dp, 20.dp)
                     .padding(5.dp)
-
             )
-
         }
     }
 }
 
 @Composable
-fun ProductDescription(product: ProductDetails) {
+fun ProductDescription(product: com.sagarika.data.entities.ProductDetails) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -130,7 +122,6 @@ fun ProductDescription(product: ProductDetails) {
         fontSize = 10.sp,
         modifier = Modifier.fillMaxSize()
     )
-
 }
 
 

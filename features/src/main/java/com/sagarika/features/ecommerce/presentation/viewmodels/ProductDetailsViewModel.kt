@@ -2,8 +2,8 @@ package com.sagarika.features.ecommerce.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sagarika.common.util.Resource
 import com.sagarika.domain.usecases.GetProductDetailsUseCase
-import com.sagarika.data.remote.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

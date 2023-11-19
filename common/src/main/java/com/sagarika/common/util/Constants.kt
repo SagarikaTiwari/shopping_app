@@ -1,4 +1,4 @@
-package com.example.e_commerceappwithjetpackcompose.data.util
+package com.sagarika.common.util
 
  class Constants {
     companion object {

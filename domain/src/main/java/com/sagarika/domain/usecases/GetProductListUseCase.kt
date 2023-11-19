@@ -1,8 +1,8 @@
 package com.sagarika.domain.usecases
 
-import com.sagarika.data.remote.Resource
+import com.sagarika.common.util.Resource
 import com.sagarika.domain.entities.Product
-import com.sagarika.domain.repositories.ProductRepository
+import com.sagarika.domain.repository.ProductRepository
 import javax.inject.Inject
 
 class GetProductListUseCase @Inject constructor(

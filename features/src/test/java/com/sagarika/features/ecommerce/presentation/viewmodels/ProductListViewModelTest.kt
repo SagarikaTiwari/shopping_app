@@ -1,8 +1,8 @@
 package com.sagarika.features.ecommerce.presentation.viewmodels
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.sagarika.data.remote.Resource
-import com.sagarika.domain.entities.Product
+import com.sagarika.common.util.Resource
+import com.sagarika.data.entities.Product
 import com.sagarika.domain.usecases.GetProductListUseCase
 import com.sagarika.features.ecommerce.presentation.mapper.ProductToProductCardViewStateMapper
 import io.mockk.coEvery
@@ -27,9 +27,9 @@ class ProductListViewModelTest {
         private val productToProductCardViewStateMapper =
             mockk<ProductToProductCardViewStateMapper>()
         private val listOfProduct = (0..2).map {
-            Product("title", "description", 6.0, "", "$it")
+            com.sagarika.data.entities.Product("title", "description", 6.0, "", "$it")
         }
-        private lateinit var result: Resource.Success<List<Product>>
+        private lateinit var result: Resource.Success<List<com.sagarika.data.entities.Product>>
         private var isLoading = false
     }
 

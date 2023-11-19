@@ -2,7 +2,7 @@ package com.sagarika.features.ecommerce.presentation.viewmodels
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.sagarika.data.remote.Resource
-import com.sagarika.domain.entities.ProductDetails
+import com.sagarika.data.entities.ProductDetails
 import com.sagarika.domain.usecases.GetProductDetailsUseCase
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -23,7 +23,7 @@ class ProductDetailsViewModelTest {
         private var isLoading = false
 
         val productDetails =
-            ProductDetails(
+            com.sagarika.data.entities.ProductDetails(
                 "title",
                 "description",
                 "full description",
