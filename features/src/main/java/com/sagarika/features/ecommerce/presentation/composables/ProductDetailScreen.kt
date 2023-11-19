@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.sagarika.data.entities.ProductDetails
+import com.sagarika.domain.entities.ProductDetails
 import com.sagarika.features.ecommerce.presentation.theme.Roboto
 import com.sagarika.features.ecommerce.presentation.viewmodels.ProductDetailsViewState
 import com.sagarika.features.ecommerce.presentation.viewmodels.ProductDetailsViewModel
@@ -65,7 +65,7 @@ fun ProductDetailScreen(
 }
 
 @Composable
-fun ProductTitleAndImage(product: com.sagarika.data.entities.ProductDetails) {
+fun ProductTitleAndImage(product: ProductDetails) {
     Box(
         contentAlignment = Alignment.TopStart,
         modifier = Modifier
@@ -107,7 +107,7 @@ fun ProductTitleAndImage(product: com.sagarika.data.entities.ProductDetails) {
 }
 
 @Composable
-fun ProductDescription(product: com.sagarika.data.entities.ProductDetails) {
+fun ProductDescription(product: ProductDetails) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
